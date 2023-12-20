@@ -4,6 +4,7 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const { render } = require("ejs");
 const path = require("path");
+require("dotenv").config();
 
 //list : default collection for storing tasks
 // const listSchema = mongoose.Schema({name : String});
@@ -22,9 +23,7 @@ const itemsDefault = [item1, item2, item3];
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 app.set("view engine", "ejs");
-mongoose.connect(
-  process.env.mongo_db;
-);
+mongoose.connect(process.env.DB_STRING);
 
 app.post("/name", function (req, res) {
   let userName = req.body.name;
