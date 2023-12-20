@@ -23,7 +23,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 app.set("view engine", "ejs");
 mongoose.connect(
-  "mongodb+srv://dhanushvikram8851:KG6NctTwss4NGMrF@cluster0.t4ibxim.mongodb.net/?retryWrites=true&w=majority"
+  process.env.mongo_db;
 );
 
 app.post("/name", function (req, res) {
